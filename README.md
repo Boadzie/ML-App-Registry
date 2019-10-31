@@ -1,6 +1,6 @@
 # Machine Learning App Registry
 
-### A streamlit web app with 3 machine Learning application
+## A streamlit web app with 3 machine Learning applications
 
 ### Instructions for Use
 
@@ -8,6 +8,8 @@
     pip install streamlit pickle numpy
 
 ```
+
+Then to run the app
 
 ```python
    # run the app with
