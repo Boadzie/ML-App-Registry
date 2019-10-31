@@ -9,7 +9,7 @@ analyser = SentimentIntensityAnalyzer()  # initialize it
 
 st.markdown('# Machine Learning App Registry')
 st.markdown(
-    '#### These  are projects from students in the Artificial Intelligence Movement(AIM) ')
+    '#### These are projects from Artificial Intelligence Movement(AIM) Lead by [Boadzie Daniel](http://boadzie.surge.sh/)')
 
 
 st.markdown('## App 1: VADER Sentimental Analysis')
