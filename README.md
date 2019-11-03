@@ -2,10 +2,14 @@
 
 ## A streamlit web app with 3 machine Learning applications
 
-### Instructions for Use
+1. **Sentimental Analyzer**
+2. **A Salary Predictor**
+3. **An Iris Flower Classifier**
+
+### Install the packages for running the app
 
 ```python
-    pip install streamlit pickle numpy
+    pip install -u requirements.txt
 
 ```
 

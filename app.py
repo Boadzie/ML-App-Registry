@@ -9,7 +9,7 @@ analyser = SentimentIntensityAnalyzer()  # initialize it
 
 st.markdown('# Machine Learning App Registry')
 st.markdown(
-    '#### These are projects from Artificial Intelligence Movement(AIM) Lead by [Boadzie Daniel](http://boadzie.surge.sh/)')
+    '#### These are projects from Artificial Intelligence Movement(AIM) Led by [Boadzie Daniel](http://boadzie.surge.sh/)')
 
 
 st.markdown('## App 1: VADER Sentimental Analysis')
@@ -22,8 +22,14 @@ st.write('Sentimental Analysis is a branch of Natural Language Processing \
 
 def sentiment_analyzer_scores(sentence):
     score = analyser.polarity_scores(sentence)
-    # return ("{} ==>  {}".format(sentence, str(score)))
-    return f'The Sentiment is ==> {str(score )}'
+    score = score['compound']
+    if score > 0.05:
+        return 'The sentiment of your text is Positive'
+    elif score > -0.5 and score < 0.05:
+        return 'The sentiment of your text is Neutral'
+    else:
+        return 'The sentiment of your text is Negative'
+    return score
 
 
 sentence = st.text_area('Write your sentence')
@@ -31,9 +37,10 @@ sentence = st.text_area('Write your sentence')
 
 if st.button('Submit'):
     result = sentiment_analyzer_scores(sentence)
+    st.balloons()
     st.success(result)
 
-
+######################################################################################
 st.markdown('---')
 # The second app
 st.markdown('## App 2: Salary Predictor For Techies')
@@ -53,9 +60,9 @@ final_features = [np.array(int_features)]
 if st.button('Predict'):
     prediction = model.predict(final_features)
     st.balloons()
-    st.success(f'Your Salary per anum is: Ghc {prediction[0]}')
+    st.success(f'Your Salary per anum is: Ghc {round(prediction[0], 2)}')
 
-
+#########################################################################################
 st.markdown('---')
 # The third app
 # load the model
@@ -81,3 +88,5 @@ if st.button('Report'):
     prediction = str(prediction).replace("']", '').split('-')
     st.balloons()
     st.success(f'The flower belongs to the class {prediction[1]}')
+
+############################################################################################
