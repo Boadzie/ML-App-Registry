@@ -3,3 +3,4 @@ numpy
 toml
 vaderSentiment
 sklearn
+googletrans

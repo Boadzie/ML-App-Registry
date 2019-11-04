@@ -1,10 +1,12 @@
 import pickle
 import numpy as np
+from googletrans import Translator
 
 #from PIL import Image
 import streamlit as st
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 analyser = SentimentIntensityAnalyzer()  # initialize it
+translator = Translator()
 
 
 st.markdown('# Machine Learning App Registry')
@@ -12,7 +14,7 @@ st.markdown(
     '#### These are projects from Artificial Intelligence Movement(AIM) Led by [Boadzie Daniel](http://boadzie.surge.sh/)')
 
 
-st.markdown('## App 1: VADER Sentimental Analysis')
+st.markdown('## App 1: Multilingual Sentimental Analysis')
 
 st.write('Sentimental Analysis is a branch of Natural Language Processing \
     which involves the extraction of sentiments in text. The VADER package makes it easy to do Sentimental Analysis')
@@ -21,9 +23,10 @@ st.write('Sentimental Analysis is a branch of Natural Language Processing \
 
 
 def sentiment_analyzer_scores(sentence):
-    score = analyser.polarity_scores(sentence)
+    trans = translator.translate(sentence).text
+    score = analyser.polarity_scores(trans)
     score = score['compound']
-    if score > 0.05:
+    if score >= 0.05:
         return 'The sentiment of your text is Positive'
     elif score > -0.5 and score < 0.05:
         return 'The sentiment of your text is Neutral'
